@@ -13,15 +13,29 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Lato', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          secondary: "hsl(var(--background-secondary))",
+        },
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          light: "hsl(var(--primary-light))",
+          dark: "hsl(var(--primary-dark))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+          light: "hsl(var(--success-light))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -38,6 +52,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          light: "hsl(var(--accent-light))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -46,6 +61,19 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        mood: {
+          happy: "hsl(var(--mood-happy))",
+          sad: "hsl(var(--mood-sad))",
+          anxious: "hsl(var(--mood-anxious))",
+          neutral: "hsl(var(--mood-neutral))",
+          excited: "hsl(var(--mood-excited))",
+        },
+        wellness: {
+          meditation: "hsl(var(--wellness-meditation))",
+          exercise: "hsl(var(--wellness-exercise))",
+          sleep: "hsl(var(--wellness-sleep))",
+          nutrition: "hsl(var(--wellness-nutrition))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

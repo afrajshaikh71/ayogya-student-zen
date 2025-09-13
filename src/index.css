@@ -2,41 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Ayogya Mental Health App Design System */
 
 @layer base {
   :root {
+    /* Brand Colors - Blue, Green, Lavender */
+    --primary: 217 91% 60%; /* Blue #3B82F6 */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 217 91% 70%;
+    --primary-dark: 217 91% 50%;
+    
+    --success: 158 64% 52%; /* Green #10B981 */
+    --success-foreground: 0 0% 100%;
+    --success-light: 158 64% 62%;
+    
+    --accent: 258 90% 66%; /* Lavender #A78BFA */
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 258 90% 76%;
+    
+    /* Neutral Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 222 84% 5%;
+    --background-secondary: 210 40% 98%;
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 222 84% 5%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: 222 84% 5%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+    
+    /* Mood Colors */
+    --mood-happy: 45 93% 58%; /* Yellow */
+    --mood-sad: 217 91% 60%; /* Blue */
+    --mood-anxious: 12 76% 61%; /* Orange */
+    --mood-neutral: 215 16% 47%; /* Gray */
+    --mood-excited: 258 90% 66%; /* Purple */
+    
+    /* Wellness Colors */
+    --wellness-meditation: 258 90% 66%; /* Purple */
+    --wellness-exercise: 158 64% 52%; /* Green */
+    --wellness-sleep: 217 91% 60%; /* Blue */
+    --wellness-nutrition: 45 93% 58%; /* Yellow */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(258 90% 66%));
+    --gradient-success: linear-gradient(135deg, hsl(158 64% 52%), hsl(158 64% 62%));
+    --gradient-wellness: linear-gradient(135deg, hsl(217 91% 60%), hsl(158 64% 52%));
+    --gradient-mood: linear-gradient(135deg, hsl(45 93% 58%), hsl(258 90% 66%));
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(217 91% 60% / 0.1);
+    --shadow-medium: 0 4px 12px -4px hsl(217 91% 60% / 0.15);
+    --shadow-large: 0 8px 24px -8px hsl(217 91% 60% / 0.2);
+    --shadow-glow: 0 0 20px hsl(217 91% 60% / 0.3);
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Lato', sans-serif;
+    
+    /* Border Radius */
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +94,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222 84% 5%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --background-secondary: 222 84% 7%;
+    
+    --card: 222 84% 5%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    
+    --popover: 222 84% 5%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    
+    --secondary: 217 33% 18%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+    
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 217 91% 60%;
+    
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -100,6 +131,76 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .mobile-container {
+    @apply max-w-sm mx-auto bg-background min-h-screen;
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-success {
+    background: var(--gradient-success);
+  }
+  
+  .gradient-wellness {
+    background: var(--gradient-wellness);
+  }
+  
+  .gradient-mood {
+    background: var(--gradient-mood);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-medium hover:shadow-large transition-all duration-300 transform hover:-translate-y-0.5;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-medium hover:-translate-y-1;
+  }
+  
+  .mood-happy {
+    @apply bg-[hsl(var(--mood-happy))] text-white;
+  }
+  
+  .mood-sad {
+    @apply bg-[hsl(var(--mood-sad))] text-white;
+  }
+  
+  .mood-anxious {
+    @apply bg-[hsl(var(--mood-anxious))] text-white;
+  }
+  
+  .mood-neutral {
+    @apply bg-[hsl(var(--mood-neutral))] text-white;
+  }
+  
+  .mood-excited {
+    @apply bg-[hsl(var(--mood-excited))] text-white;
   }
 }
