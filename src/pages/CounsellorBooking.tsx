@@ -61,6 +61,26 @@ const CounsellorBooking = () => {
       time: "6:00 PM - 7:00 PM",
       available: true,
       languages: ["Malayalam", "English", "Hindi"]
+    },
+    {
+      id: 5,
+      name: "Pandit Mohan Sharma",
+      specialization: "Spiritual Guidance & Stress Relief",
+      rating: 4.9,
+      experience: "15 years",
+      time: "7:00 AM - 8:00 AM",
+      available: true,
+      languages: ["Sanskrit", "Hindi", "English"]
+    },
+    {
+      id: 6,
+      name: "Sister Mary Thomas",
+      specialization: "Moral Guidance & Inner Peace",
+      rating: 4.8,
+      experience: "12 years",
+      time: "5:00 PM - 6:00 PM", 
+      available: true,
+      languages: ["English", "Tamil", "Hindi"]
     }
   ];
 

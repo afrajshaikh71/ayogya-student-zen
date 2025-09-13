@@ -7,6 +7,7 @@ import WelcomeScreen from "./pages/WelcomeScreen";
 import StudentHome from "./pages/StudentHome";
 import ChatbotScreen from "./pages/ChatbotScreen";
 import CounsellorBooking from "./pages/CounsellorBooking";
+import CounsellorHome from "./pages/CounsellorHome";
 import PeerSupportForum from "./pages/PeerSupportForum";
 import ResourceHub from "./pages/ResourceHub";
 import MoodTracking from "./pages/MoodTracking";
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/student-home" element={<StudentHome />} />
             <Route path="/chatbot" element={<ChatbotScreen />} />
             <Route path="/booking" element={<CounsellorBooking />} />
+            <Route path="/counsellor-home" element={<CounsellorHome />} />
             <Route path="/forum" element={<PeerSupportForum />} />
             <Route path="/resources" element={<ResourceHub />} />
             <Route path="/mood" element={<MoodTracking />} />

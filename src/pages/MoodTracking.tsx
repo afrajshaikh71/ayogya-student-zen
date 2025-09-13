@@ -49,8 +49,17 @@ const MoodTracking = () => {
       return;
     }
 
+    // Add checkmark animation
+    const moodButton = document.querySelector(`[data-mood="${selectedMood}"]`);
+    if (moodButton) {
+      moodButton.classList.add('animate-bounce');
+      setTimeout(() => {
+        moodButton.classList.remove('animate-bounce');
+      }, 1000);
+    }
+
     toast({
-      title: "Mood Logged!",
+      title: "Mood Logged! ✅",
       description: "Your daily mood has been recorded successfully.",
     });
     
@@ -124,6 +133,7 @@ const MoodTracking = () => {
                       selectedMood === mood.name ? mood.color + " text-white" : ""
                     }`}
                     onClick={() => setSelectedMood(mood.name)}
+                    data-mood={mood.name}
                   >
                     <span className="text-lg">{mood.emoji}</span>
                     <span className="text-xs">{mood.label}</span>

@@ -129,6 +129,15 @@ const WellnessChallenges = () => {
       currentStreak: prev.currentStreak + 1
     }));
 
+    // Add confetti animation
+    const button = document.querySelector(`[data-challenge-id="${challengeId}"]`);
+    if (button) {
+      button.classList.add('animate-pulse');
+      setTimeout(() => {
+        button.classList.remove('animate-pulse');
+      }, 1500);
+    }
+
     toast({
       title: "Challenge Completed! 🎉",
       description: `You earned ${challenge.points} points! Keep up the great work!`,
@@ -265,6 +274,7 @@ const WellnessChallenges = () => {
                     disabled={challenge.completed}
                     className={`w-full ${challenge.completed ? '' : 'btn-gradient'}`}
                     variant={challenge.completed ? 'outline' : 'default'}
+                    data-challenge-id={challenge.id}
                   >
                     {challenge.completed ? (
                       <>

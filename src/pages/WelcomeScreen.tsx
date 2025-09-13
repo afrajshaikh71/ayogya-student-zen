@@ -33,9 +33,8 @@ const WelcomeScreen = () => {
         </Button>
 
         <Button
-          onClick={() => navigate("/admin")}
-          variant="outline"
-          className="w-full border-white/30 text-white hover:bg-white/10 shadow-soft py-6 rounded-xl font-medium text-lg"
+          onClick={() => navigate("/counsellor-home")}
+          className="w-full bg-white text-primary hover:bg-white/90 shadow-medium py-6 rounded-xl font-medium text-lg"
         >
           <UserCheck className="mr-3 h-6 w-6" />
           Login as Counsellor

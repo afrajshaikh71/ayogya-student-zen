@@ -21,42 +21,42 @@ const StudentHome = () => {
       description: "Talk to our caring AI assistant",
       icon: MessageCircle,
       route: "/chatbot",
-      color: "from-primary to-primary-light"
+      color: "from-purple-400 to-purple-600"
     },
     {
       title: "Book Counsellor",
       description: "Schedule with professional counsellors",
       icon: Calendar,
       route: "/booking",
-      color: "from-success to-success-light"
+      color: "from-teal-400 to-emerald-500"
     },
     {
       title: "Peer Support",
       description: "Connect with fellow students",
       icon: Users,
       route: "/forum",
-      color: "from-accent to-accent-light"
+      color: "from-pink-400 to-fuchsia-500"
     },
     {
       title: "Resources",
       description: "Helpful guides and materials",
       icon: BookOpen,
       route: "/resources",
-      color: "from-primary to-success"
+      color: "from-blue-500 to-cyan-400"
     },
     {
       title: "Mood Tracker",
       description: "Track your emotional wellbeing",
       icon: Heart,
       route: "/mood",
-      color: "from-accent to-primary"
+      color: "from-amber-400 to-orange-400"
     },
     {
       title: "Wellness Challenges",
       description: "Fun daily mental health activities",
       icon: Trophy,
       route: "/challenges",
-      color: "from-success to-accent"
+      color: "from-green-500 to-sky-500"
     }
   ];
 
@@ -82,43 +82,73 @@ const StudentHome = () => {
         {/* Quick Mood Check */}
         <Card className="bg-white/10 border-white/20">
           <CardContent className="p-4">
-            <p className="text-white/90 text-sm mb-3">Quick mood check:</p>
-            <div className="flex justify-between">
+            <h3 className="text-white font-semibold mb-1">Quick Mood Check</h3>
+            <p className="text-white/80 text-xs mb-3">Tap an emoji to log your current mood</p>
+            <div className="flex justify-between gap-2">
               <Button 
                 size="sm" 
-                className="bg-mood-happy hover:bg-mood-happy/80 text-white rounded-full px-4"
+                className="bg-mood-happy hover:bg-mood-happy/80 text-white rounded-full px-3 py-2 flex-1"
                 onClick={() => navigate("/mood")}
               >
-                😊 Happy
+                😊
               </Button>
               <Button 
                 size="sm" 
-                className="bg-mood-neutral hover:bg-mood-neutral/80 text-white rounded-full px-4"
+                className="bg-mood-neutral hover:bg-mood-neutral/80 text-white rounded-full px-3 py-2 flex-1"
                 onClick={() => navigate("/mood")}
               >
-                😐 Okay
+                😐
               </Button>
               <Button 
                 size="sm" 
-                className="bg-mood-sad hover:bg-mood-sad/80 text-white rounded-full px-4"
+                className="bg-mood-sad hover:bg-mood-sad/80 text-white rounded-full px-3 py-2 flex-1"
                 onClick={() => navigate("/mood")}
               >
-                😢 Sad
+                😢
               </Button>
               <Button 
                 size="sm" 
-                className="bg-mood-anxious hover:bg-mood-anxious/80 text-white rounded-full px-4"
+                className="bg-mood-anxious hover:bg-mood-anxious/80 text-white rounded-full px-3 py-2 flex-1"
                 onClick={() => navigate("/mood")}
               >
-                😰 Anxious
+                😰
               </Button>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Wellness Streak */}
+        <Card className="bg-gradient-to-r from-accent to-primary border-0 mt-4">
+          <CardContent className="p-4 text-center">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="text-2xl">🔥</span>
+              <span className="text-white font-bold text-lg">7-Day Streak!</span>
+            </div>
+            <p className="text-white/90 text-sm">Keep up your wellness journey</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* AI Recommendations */}
+      <div className="px-6 py-4">
+        <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <CardContent className="p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-lg">🤖</span>
+              <h3 className="font-semibold text-gray-800">Wellness Recommendation</h3>
+            </div>
+            <p className="text-sm text-gray-600 mb-3">
+              You seem stressed before exams, try this relaxation exercise.
+            </p>
+            <Button size="sm" variant="outline" className="text-xs">
+              Start 2-min Breathing Exercise
+            </Button>
           </CardContent>
         </Card>
       </div>
 
       {/* Main Actions Grid */}
-      <div className="px-6 py-8">
+      <div className="px-6 py-4">
         <h2 className="text-xl font-semibold mb-6 text-foreground">Your Wellness Hub</h2>
         <div className="grid grid-cols-2 gap-4">
           {quickActions.map((action, index) => (
