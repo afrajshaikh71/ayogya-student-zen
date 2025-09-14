@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -92,8 +93,13 @@ const CounsellorBooking = () => {
     navigate("/student-home");
   };
 
+  // Scroll to top when component mounts
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-success/5">
       {/* Header */}
       <div className="gradient-primary px-4 py-6">
         <div className="flex items-center gap-3 mb-4">

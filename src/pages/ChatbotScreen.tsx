@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -85,8 +86,17 @@ const ChatbotScreen = () => {
     return "Thank you for sharing that with me. Your feelings are important and valid. I'm here to support you through this. Can you tell me more about how I can help you today?";
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Scroll to top when component mounts
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-accent/5 flex flex-col">
       {/* Header */}
       <div className="gradient-primary px-4 py-4 flex items-center gap-3">
         <Button 

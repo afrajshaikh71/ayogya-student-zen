@@ -1,10 +1,16 @@
 import { useNavigate } from "react-router-dom";
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { User, UserCheck, Users } from "lucide-react";
 import ayogyaLogo from "@/assets/ayogya-logo.jpg";
 
 const WelcomeScreen = () => {
   const navigate = useNavigate();
+
+  // Scroll to top when component mounts
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen gradient-primary flex flex-col items-center justify-center px-6 text-center">

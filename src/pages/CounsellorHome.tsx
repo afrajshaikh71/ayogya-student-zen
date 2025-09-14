@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
@@ -13,6 +14,11 @@ import {
 
 const CounsellorHome = () => {
   const navigate = useNavigate();
+
+  // Scroll to top when component mounts
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const counsellorActions = [
     {
@@ -46,7 +52,7 @@ const CounsellorHome = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-accent/5">
       {/* Header */}
       <div className="gradient-primary px-6 py-8 rounded-b-3xl">
         <div className="flex justify-between items-center mb-4">
