@@ -11,6 +11,8 @@ import {
   Bell,
   User
 } from "lucide-react";
+import HamburgerMenu from "@/components/HamburgerMenu";
+import FAQSection from "@/components/FAQSection";
 
 const StudentHome = () => {
   const navigate = useNavigate();
@@ -21,42 +23,42 @@ const StudentHome = () => {
       description: "Talk to our caring AI assistant",
       icon: MessageCircle,
       route: "/chatbot",
-      color: "from-purple-400 to-purple-600"
+      gradientClass: "gradient-chat"
     },
     {
       title: "Book Counsellor",
       description: "Schedule with professional counsellors",
       icon: Calendar,
       route: "/booking",
-      color: "from-teal-400 to-emerald-500"
+      gradientClass: "gradient-booking"
     },
     {
       title: "Peer Support",
       description: "Connect with fellow students",
       icon: Users,
       route: "/forum",
-      color: "from-pink-400 to-fuchsia-500"
+      gradientClass: "gradient-peer"
     },
     {
       title: "Resources",
       description: "Helpful guides and materials",
       icon: BookOpen,
       route: "/resources",
-      color: "from-blue-500 to-cyan-400"
+      gradientClass: "gradient-resources"
     },
     {
       title: "Mood Tracker",
       description: "Track your emotional wellbeing",
       icon: Heart,
       route: "/mood",
-      color: "from-amber-400 to-orange-400"
+      gradientClass: "gradient-mood-card"
     },
     {
       title: "Wellness Challenges",
       description: "Fun daily mental health activities",
       icon: Trophy,
       route: "/challenges",
-      color: "from-green-500 to-sky-500"
+      gradientClass: "gradient-challenges"
     }
   ];
 
@@ -76,6 +78,7 @@ const StudentHome = () => {
             <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-2">
               <User className="h-5 w-5" />
             </Button>
+            <HamburgerMenu />
           </div>
         </div>
 
@@ -158,10 +161,10 @@ const StudentHome = () => {
               onClick={() => navigate(action.route)}
             >
               <CardContent className="p-4 text-center">
-                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${action.color} flex items-center justify-center mx-auto mb-3`}>
+                <div className={`w-12 h-12 rounded-2xl ${action.gradientClass} flex items-center justify-center mx-auto mb-3 shadow-medium`}>
                   <action.icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-sm mb-1">{action.title}</h3>
+                <h3 className="font-bold text-sm mb-1 text-foreground">{action.title}</h3>
                 <p className="text-xs text-muted-foreground">{action.description}</p>
               </CardContent>
             </Card>
@@ -185,6 +188,9 @@ const StudentHome = () => {
           </CardContent>
         </Card>
       </div>
+
+      {/* FAQ Section */}
+      <FAQSection />
     </div>
   );
 };

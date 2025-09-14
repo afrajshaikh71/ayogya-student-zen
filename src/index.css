@@ -63,6 +63,14 @@
     --gradient-wellness: linear-gradient(135deg, hsl(217 91% 60%), hsl(158 64% 52%));
     --gradient-mood: linear-gradient(135deg, hsl(45 93% 58%), hsl(258 90% 66%));
     
+    /* Wellness Hub Card Gradients */
+    --gradient-chat: linear-gradient(135deg, hsl(258 90% 72%), hsl(258 90% 66%)); /* Lavender to Violet */
+    --gradient-booking: linear-gradient(135deg, hsl(158 77% 60%), hsl(158 64% 52%)); /* Teal to Emerald */
+    --gradient-peer: linear-gradient(135deg, hsl(328 85% 70%), hsl(328 84% 66%)); /* Pink to Fuchsia */
+    --gradient-resources: linear-gradient(135deg, hsl(217 91% 60%), hsl(197 71% 73%)); /* Blue to Aqua */
+    --gradient-mood-card: linear-gradient(135deg, hsl(45 93% 58%), hsl(35 91% 62%)); /* Amber to Orange */
+    --gradient-challenges: linear-gradient(135deg, hsl(142 76% 36%), hsl(199 89% 48%)); /* Green to Sky Blue */
+    
     /* Shadows */
     --shadow-soft: 0 2px 8px -2px hsl(217 91% 60% / 0.1);
     --shadow-medium: 0 4px 12px -4px hsl(217 91% 60% / 0.15);
@@ -158,6 +166,30 @@
   
   .gradient-mood {
     background: var(--gradient-mood);
+  }
+  
+  .gradient-chat {
+    background: var(--gradient-chat);
+  }
+  
+  .gradient-booking {
+    background: var(--gradient-booking);
+  }
+  
+  .gradient-peer {
+    background: var(--gradient-peer);
+  }
+  
+  .gradient-resources {
+    background: var(--gradient-resources);
+  }
+  
+  .gradient-mood-card {
+    background: var(--gradient-mood-card);
+  }
+  
+  .gradient-challenges {
+    background: var(--gradient-challenges);
   }
   
   .shadow-soft {
