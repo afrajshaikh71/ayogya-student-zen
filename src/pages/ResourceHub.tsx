@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { ArrowLeft, Search, Play, FileText, Headphones, Filter } from "lucide-react";
+import { ArrowLeft, Search, Play, FileText, Headphones, Filter, BookOpen } from "lucide-react";
 
 interface Resource {
   id: number;
@@ -26,16 +26,26 @@ const ResourceHub = () => {
   const resources: Resource[] = [
     {
       id: 1,
+      title: "परीक्षा तनाव को कैसे संभालें",
+      description: "छात्रों के लिए आसान तकनीकें...",
+      type: "video",
+      duration: "10 mins",
+      language: "Hindi",
+      category: "Academic Wellness",
+      thumbnail: "📝"
+    },
+    {
+      id: 2,
       title: "Breathing Exercises for Anxiety",
       description: "Learn simple breathing techniques to calm your mind during stressful situations",
       type: "video",
       duration: "8 mins",
-      language: "Hindi",
+      language: "English",
       category: "Anxiety Relief",
       thumbnail: "🧘"
     },
     {
-      id: 2,
+      id: 3,
       title: "Study-Life Balance Guide",
       description: "Complete guide to managing academics while maintaining mental wellness",
       type: "guide",
@@ -45,7 +55,7 @@ const ResourceHub = () => {
       thumbnail: "📚"
     },
     {
-      id: 3,
+      id: 4,
       title: "Sleep Meditation for Students",
       description: "Guided meditation to help you fall asleep peacefully after a stressful day",
       type: "audio",
@@ -55,7 +65,7 @@ const ResourceHub = () => {
       thumbnail: "🌙"
     },
     {
-      id: 4,
+      id: 5,
       title: "Dealing with Exam Stress",
       description: "Practical strategies to manage pressure during examination periods",
       type: "video",
@@ -63,16 +73,6 @@ const ResourceHub = () => {
       language: "English",
       category: "Academic Wellness",
       thumbnail: "📝"
-    },
-    {
-      id: 5,
-      title: "Building Self-Confidence",
-      description: "A comprehensive guide to boost your self-esteem and confidence",
-      type: "guide",
-      duration: "10 min read",
-      language: "Tamil",
-      category: "Personal Growth",
-      thumbnail: "💪"
     },
     {
       id: 6,
@@ -87,7 +87,8 @@ const ResourceHub = () => {
   ];
 
   const categories = ["All", "Anxiety Relief", "Academic Wellness", "Sleep & Recovery", "Personal Growth"];
-  const languages = ["All", "Hindi", "English", "Tamil"];
+  const languages = ["All", "English", "Hindi"];
+  const [selectedLanguage, setSelectedLanguage] = useState("All");
 
   const getResourceIcon = (type: string) => {
     switch (type) {
@@ -111,7 +112,8 @@ const ResourceHub = () => {
     const matchesSearch = resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          resource.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesFilter = selectedFilter === "All" || resource.category === selectedFilter;
-    return matchesSearch && matchesFilter;
+    const matchesLanguage = selectedLanguage === "All" || resource.language === selectedLanguage;
+    return matchesSearch && matchesFilter && matchesLanguage;
   });
 
   // Scroll to top when component mounts
@@ -122,7 +124,7 @@ const ResourceHub = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary/5">
       {/* Header */}
-      <div className="gradient-primary px-4 py-6">
+      <div className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] px-4 py-6">
         <div className="flex items-center gap-3 mb-4">
           <Button 
             variant="ghost" 
@@ -132,6 +134,7 @@ const ResourceHub = () => {
           >
             <ArrowLeft className="h-5 w-5" />
           </Button>
+          <BookOpen className="h-6 w-6 text-white" />
           <div>
             <h1 className="text-xl font-bold text-white">Resource Hub</h1>
             <p className="text-white/90 text-sm">Helpful guides and materials</p>
@@ -152,23 +155,47 @@ const ResourceHub = () => {
 
       <div className="px-4 py-6">
         {/* Filters */}
-        <div className="mb-6">
-          <div className="flex items-center gap-2 mb-3">
-            <Filter className="h-4 w-4 text-muted-foreground" />
-            <span className="text-sm font-medium">Categories</span>
+        <div className="mb-6 space-y-4">
+          {/* Language Filter */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <Filter className="h-4 w-4 text-muted-foreground" />
+              <span className="text-sm font-medium">Language</span>
+            </div>
+            <div className="flex gap-2 overflow-x-auto pb-2">
+              {languages.map((language) => (
+                <Button
+                  key={language}
+                  variant={selectedLanguage === language ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setSelectedLanguage(language)}
+                  className="whitespace-nowrap"
+                >
+                  {language}
+                </Button>
+              ))}
+            </div>
           </div>
-          <div className="flex gap-2 overflow-x-auto pb-2">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedFilter === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedFilter(category)}
-                className="whitespace-nowrap"
-              >
-                {category}
-              </Button>
-            ))}
+
+          {/* Category Filter */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <Filter className="h-4 w-4 text-muted-foreground" />
+              <span className="text-sm font-medium">Categories</span>
+            </div>
+            <div className="flex gap-2 overflow-x-auto pb-2">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={selectedFilter === category ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setSelectedFilter(category)}
+                  className="whitespace-nowrap"
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -217,7 +244,7 @@ const ResourceHub = () => {
         {filteredResources.length === 0 && (
           <div className="text-center py-12">
             <p className="text-muted-foreground mb-4">No resources found matching your search.</p>
-            <Button onClick={() => { setSearchTerm(""); setSelectedFilter("All"); }}>
+            <Button onClick={() => { setSearchTerm(""); setSelectedFilter("All"); setSelectedLanguage("All"); }}>
               Clear Filters
             </Button>
           </div>

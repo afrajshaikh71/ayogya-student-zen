@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ArrowLeft, Plus, MessageCircle, Heart, Clock } from "lucide-react";
+import { ArrowLeft, Plus, MessageCircle, Heart, Clock, Users } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 interface ForumPost {
@@ -134,7 +134,7 @@ const PeerSupportForum = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-accent/5">
       {/* Header */}
-      <div className="gradient-primary px-4 py-6">
+      <div className="bg-gradient-to-r from-[#F472B6] to-[#EC4899] px-4 py-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Button 
@@ -145,6 +145,7 @@ const PeerSupportForum = () => {
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
+            <Users className="h-6 w-6 text-white" />
             <div>
               <h1 className="text-xl font-bold text-white">Peer Support Forum</h1>
               <p className="text-white/90 text-sm">Connect with fellow students</p>

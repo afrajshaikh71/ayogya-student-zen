@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar";
-import { ArrowLeft, Clock, Star, MapPin } from "lucide-react";
+import { ArrowLeft, Clock, Star, MapPin, CalendarIcon } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "@/hooks/use-toast";
 
 interface CounsellorSlot {
@@ -21,6 +22,8 @@ interface CounsellorSlot {
 const CounsellorBooking = () => {
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
+  const [selectedCounsellor, setSelectedCounsellor] = useState<CounsellorSlot | null>(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
   
   const counsellors: CounsellorSlot[] = [
     {
@@ -86,11 +89,19 @@ const CounsellorBooking = () => {
   ];
 
   const handleBookAppointment = (counsellor: CounsellorSlot) => {
-    toast({
-      title: "Appointment Booked!",
-      description: `Your session with ${counsellor.name} has been scheduled for ${selectedDate?.toLocaleDateString()} at ${counsellor.time}`,
-    });
-    navigate("/student-home");
+    setSelectedCounsellor(counsellor);
+    setShowConfirmation(true);
+  };
+
+  const confirmBooking = () => {
+    if (selectedCounsellor) {
+      toast({
+        title: "Appointment Booked!",
+        description: `Your session with ${selectedCounsellor.name} has been scheduled for ${selectedDate?.toLocaleDateString()} at ${selectedCounsellor.time}`,
+      });
+      setShowConfirmation(false);
+      navigate("/student-home");
+    }
   };
 
   // Scroll to top when component mounts
@@ -101,7 +112,7 @@ const CounsellorBooking = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-success/5">
       {/* Header */}
-      <div className="gradient-primary px-4 py-6">
+      <div className="bg-gradient-to-r from-[#34D399] to-[#10B981] px-4 py-6">
         <div className="flex items-center gap-3 mb-4">
           <Button 
             variant="ghost" 
@@ -111,6 +122,7 @@ const CounsellorBooking = () => {
           >
             <ArrowLeft className="h-5 w-5" />
           </Button>
+          <CalendarIcon className="h-6 w-6 text-white" />
           <div>
             <h1 className="text-xl font-bold text-white">Book Counsellor</h1>
             <p className="text-white/90 text-sm">Professional support when you need it</p>
@@ -204,6 +216,53 @@ const CounsellorBooking = () => {
           </CardContent>
         </Card>
       </div>
+
+      {/* Confirmation Dialog */}
+      <Dialog open={showConfirmation} onOpenChange={setShowConfirmation}>
+        <DialogContent className="mx-4">
+          <DialogHeader>
+            <DialogTitle>Confirm Appointment</DialogTitle>
+          </DialogHeader>
+          {selectedCounsellor && (
+            <div className="space-y-4">
+              <div className="text-center">
+                <h3 className="font-semibold text-lg">{selectedCounsellor.name}</h3>
+                <p className="text-sm text-muted-foreground">{selectedCounsellor.specialization}</p>
+              </div>
+              <div className="bg-accent/10 p-4 rounded-lg">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-medium">Date:</span>
+                  <span>{selectedDate?.toLocaleDateString('en-IN', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}</span>
+                </div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-medium">Time:</span>
+                  <span>{selectedCounsellor.time}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="font-medium">Duration:</span>
+                  <span>60 minutes</span>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground text-center">
+                You will receive a confirmation email with meeting details.
+              </p>
+            </div>
+          )}
+          <DialogFooter className="flex gap-2">
+            <Button variant="outline" onClick={() => setShowConfirmation(false)} className="flex-1">
+              Cancel
+            </Button>
+            <Button onClick={confirmBooking} className="btn-gradient flex-1">
+              Confirm Booking
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
