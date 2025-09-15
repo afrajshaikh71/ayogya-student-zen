@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useAppNavigation } from "@/hooks/useNavigation";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,6 +19,7 @@ import Footer from "@/components/Footer";
 
 const StudentHome = () => {
   const navigate = useNavigate();
+  const { goBack } = useAppNavigation();
 
   // Scroll to top when component mounts
   React.useEffect(() => {
@@ -130,7 +132,7 @@ const StudentHome = () => {
       </div>
 
       {/* Main Actions Grid */}
-      <div className="px-6 py-4">
+      <div id="wellness-hub" className="px-6 py-4">
         <h2 className="text-xl font-semibold mb-6 text-foreground">Your Wellness Hub</h2>
         <div className="grid grid-cols-2 gap-4">
           {quickActions.map((action, index) => (
@@ -202,7 +204,9 @@ const StudentHome = () => {
       </div>
 
       {/* FAQ Section */}
-      <FAQSection />
+      <div id="faq">
+        <FAQSection />
+      </div>
       
       {/* Footer */}
       <Footer />

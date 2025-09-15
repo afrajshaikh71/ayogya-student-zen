@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useAppNavigation } from "@/hooks/useNavigation";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,6 +15,7 @@ import {
 
 const CounsellorHome = () => {
   const navigate = useNavigate();
+  const { goBack } = useAppNavigation();
 
   // Scroll to top when component mounts
   React.useEffect(() => {
@@ -61,7 +63,7 @@ const CounsellorHome = () => {
               size="sm" 
               variant="ghost" 
               className="text-white hover:bg-white/20 p-2"
-              onClick={() => navigate("/")}
+              onClick={goBack}
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>

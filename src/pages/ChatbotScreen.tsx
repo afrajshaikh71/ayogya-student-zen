@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppNavigation } from "@/hooks/useNavigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,6 +18,7 @@ interface Message {
 
 const ChatbotScreen = () => {
   const navigate = useNavigate();
+  const { goBack } = useAppNavigation();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
@@ -99,11 +101,11 @@ const ChatbotScreen = () => {
     <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-accent/5 flex flex-col">
       {/* Header */}
       <div className="gradient-primary px-4 py-4 flex items-center gap-3">
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          className="text-white hover:bg-white/20 p-2"
-          onClick={() => navigate("/student-home")}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-white hover:bg-white/20"
+          onClick={goBack}
         >
           <ArrowLeft className="h-5 w-5" />
         </Button>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppNavigation } from "@/hooks/useNavigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -28,6 +29,7 @@ interface UserStats {
 
 const WellnessChallenges = () => {
   const navigate = useNavigate();
+  const { goBack } = useAppNavigation();
   
   const [userStats, setUserStats] = useState<UserStats>({
     totalPoints: 280,

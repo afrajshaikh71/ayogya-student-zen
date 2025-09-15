@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppNavigation } from "@/hooks/useNavigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar";
@@ -21,6 +22,7 @@ interface CounsellorSlot {
 
 const CounsellorBooking = () => {
   const navigate = useNavigate();
+  const { goBack } = useAppNavigation();
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const [selectedCounsellor, setSelectedCounsellor] = useState<CounsellorSlot | null>(null);
   const [showConfirmation, setShowConfirmation] = useState(false);

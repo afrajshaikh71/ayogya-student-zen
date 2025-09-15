@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppNavigation } from "@/hooks/useNavigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, TrendingUp, Calendar } from "lucide-react";
@@ -16,6 +17,7 @@ interface MoodEntry {
 
 const MoodTracking = () => {
   const navigate = useNavigate();
+  const { goBack } = useAppNavigation();
   const [selectedMood, setSelectedMood] = useState<string>("");
   const [selectedEnergy, setSelectedEnergy] = useState<number>(5);
   const [selectedStress, setSelectedStress] = useState<number>(5);

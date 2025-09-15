@@ -1,20 +1,34 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAppNavigation } from "@/hooks/useNavigation";
+import { useNavigate } from "react-router-dom";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { navigateToSection } = useAppNavigation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const handleMenuItemClick = (title: string) => {
+    setIsOpen(false);
+    navigateToSection(title);
+  };
+
+  const handleLoginClick = () => {
+    setIsOpen(false);
+    navigate('/');
+  };
+
   const menuItems = [
-    { title: "Home", href: "#" },
-    { title: "About", href: "#" },
-    { title: "Features", href: "#" },
-    { title: "Blog", href: "#" },
-    { title: "Pricing", href: "#" },
-    { title: "Contact", href: "#" },
-    { title: "FAQ", href: "#" }
+    { title: "Home" },
+    { title: "About" },
+    { title: "Features" },
+    { title: "Blog" },
+    { title: "Pricing" },
+    { title: "Contact" },
+    { title: "FAQ" }
   ];
 
   return (
@@ -43,17 +57,28 @@ const HamburgerMenu = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
+        {/* Close Button */}
+        <div className="absolute top-4 right-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleMenu}
+            className="text-foreground hover:bg-muted rounded-full"
+          >
+            <X className="h-6 w-6" />
+          </Button>
+        </div>
+        
         <div className="p-6 pt-16 flex flex-col h-full">
           <nav className="space-y-6 flex-1">
             {menuItems.map((item, index) => (
-              <a
+              <button
                 key={index}
-                href={item.href}
-                className="block text-lg font-medium text-foreground hover:text-primary transition-colors duration-200 py-2"
-                onClick={toggleMenu}
+                className="block w-full text-left text-lg font-medium text-foreground hover:text-primary transition-colors duration-200 py-2"
+                onClick={() => handleMenuItemClick(item.title)}
               >
                 {item.title}
-              </a>
+              </button>
             ))}
           </nav>
           
@@ -61,7 +86,7 @@ const HamburgerMenu = () => {
           <div className="border-t border-border pt-6 mt-6">
             <Button 
               className="w-full mb-3 bg-primary text-primary-foreground hover:bg-primary/90"
-              onClick={toggleMenu}
+              onClick={handleLoginClick}
             >
               Login / Sign Up
             </Button>
