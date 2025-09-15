@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import HamburgerMenu from "@/components/HamburgerMenu";
 import FAQSection from "@/components/FAQSection";
+import Footer from "@/components/Footer";
 
 const StudentHome = () => {
   const navigate = useNavigate();
@@ -29,42 +30,42 @@ const StudentHome = () => {
       description: "Talk to our caring AI assistant",
       icon: MessageCircle,
       route: "/chatbot",
-      gradientClass: "gradient-chat"
+      gradientClass: "bg-gradient-to-r from-[#A78BFA] to-[#7C3AED]"
     },
     {
       title: "Book Counsellor",
       description: "Schedule with professional counsellors",
       icon: Calendar,
       route: "/booking",
-      gradientClass: "gradient-booking"
+      gradientClass: "bg-gradient-to-r from-[#34D399] to-[#10B981]"
     },
     {
       title: "Peer Support",
       description: "Connect with fellow students",
       icon: Users,
       route: "/forum",
-      gradientClass: "gradient-peer"
+      gradientClass: "bg-gradient-to-r from-[#F472B6] to-[#EC4899]"
     },
     {
       title: "Resources",
       description: "Helpful guides and materials",
       icon: BookOpen,
       route: "/resources",
-      gradientClass: "gradient-resources"
+      gradientClass: "bg-gradient-to-r from-[#3B82F6] to-[#06B6D4]"
     },
     {
       title: "Mood Tracker",
       description: "Track your emotional wellbeing",
       icon: Heart,
       route: "/mood",
-      gradientClass: "gradient-mood-card"
+      gradientClass: "bg-gradient-to-r from-[#FBBF24] to-[#F59E0B]"
     },
     {
       title: "Wellness Challenges",
       description: "Fun daily mental health activities",
       icon: Trophy,
       route: "/challenges",
-      gradientClass: "gradient-challenges"
+      gradientClass: "bg-gradient-to-r from-[#22C55E] to-[#0EA5E9]"
     }
   ];
 
@@ -126,34 +127,6 @@ const StudentHome = () => {
           </CardContent>
         </Card>
 
-        {/* Wellness Streak */}
-        <Card className="bg-gradient-to-r from-accent to-primary border-0 mt-4">
-          <CardContent className="p-4 text-center">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <span className="text-2xl">🔥</span>
-              <span className="text-white font-bold text-lg">7-Day Streak!</span>
-            </div>
-            <p className="text-white/90 text-sm">Keep up your wellness journey</p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* AI Recommendations */}
-      <div className="px-6 py-4">
-        <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-lg">🤖</span>
-              <h3 className="font-semibold text-gray-800">Wellness Recommendation</h3>
-            </div>
-            <p className="text-sm text-gray-600 mb-3">
-              You seem stressed before exams, try this relaxation exercise.
-            </p>
-            <Button size="sm" variant="outline" className="text-xs">
-              Start 2-min Breathing Exercise
-            </Button>
-          </CardContent>
-        </Card>
       </div>
 
       {/* Main Actions Grid */}
@@ -176,9 +149,42 @@ const StudentHome = () => {
             </Card>
           ))}
         </div>
+      </div>
 
+      {/* Wellness Streak & AI Recommendations */}
+      <div className="px-6 py-4 space-y-4">
+        <Card className="bg-gradient-to-r from-accent to-primary border-0">
+          <CardContent className="p-4 text-center">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="text-2xl">🔥</span>
+              <span className="text-white font-bold text-lg">7-Day Streak!</span>
+            </div>
+            <p className="text-white/90 text-sm">Keep up your wellness journey</p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <CardContent className="p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-lg">🤖</span>
+              <h3 className="font-semibold text-gray-800">Wellness Recommendation</h3>
+            </div>
+            <p className="text-sm text-gray-600 mb-3">
+              You seem stressed before exams, try this relaxation exercise.
+            </p>
+            <Button size="sm" variant="outline" className="text-xs">
+              Start 2-min Breathing Exercise
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Track Your Wellness Section */}
+      <div className="px-6 py-4">
+        <h2 className="text-xl font-semibold mb-6 text-foreground">Track Your Wellness</h2>
+        
         {/* Emergency Support */}
-        <Card className="mt-8 bg-destructive/10 border-destructive/20">
+        <Card className="mt-4 bg-destructive/10 border-destructive/20">
           <CardContent className="p-4 text-center">
             <h3 className="font-semibold text-destructive mb-2">Need Immediate Support?</h3>
             <p className="text-sm text-muted-foreground mb-3">
@@ -197,6 +203,9 @@ const StudentHome = () => {
 
       {/* FAQ Section */}
       <FAQSection />
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

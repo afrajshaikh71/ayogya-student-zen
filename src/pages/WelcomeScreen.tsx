@@ -21,11 +21,11 @@ const WelcomeScreen = () => {
           className="w-24 h-24 mx-auto mb-4 rounded-2xl shadow-large"
         />
         <h1 className="text-4xl font-bold text-white mb-2">Ayogya</h1>
-        <p className="text-xl text-white/90 font-light">
-          Your Mental Wellness Companion
+        <p className="text-xl text-white/90 font-light mb-2">
+          Your trusted companion for student mental wellness
         </p>
-        <p className="text-sm text-white/80 mt-2 max-w-xs mx-auto">
-          Supporting Indian students on their journey to better mental health
+        <p className="text-sm text-white/80 mt-2 max-w-sm mx-auto">
+          Track your mood, talk to AI, connect with counsellors & peers
         </p>
       </div>
 

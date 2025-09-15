@@ -11,7 +11,10 @@ const HamburgerMenu = () => {
     { title: "Home", href: "#" },
     { title: "About", href: "#" },
     { title: "Features", href: "#" },
-    { title: "Blog", href: "#" }
+    { title: "Blog", href: "#" },
+    { title: "Pricing", href: "#" },
+    { title: "Contact", href: "#" },
+    { title: "FAQ", href: "#" }
   ];
 
   return (
@@ -40,8 +43,8 @@ const HamburgerMenu = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="p-6 pt-16">
-          <nav className="space-y-6">
+        <div className="p-6 pt-16 flex flex-col h-full">
+          <nav className="space-y-6 flex-1">
             {menuItems.map((item, index) => (
               <a
                 key={index}
@@ -53,6 +56,16 @@ const HamburgerMenu = () => {
               </a>
             ))}
           </nav>
+          
+          {/* Login/Sign Up Section */}
+          <div className="border-t border-border pt-6 mt-6">
+            <Button 
+              className="w-full mb-3 bg-primary text-primary-foreground hover:bg-primary/90"
+              onClick={toggleMenu}
+            >
+              Login / Sign Up
+            </Button>
+          </div>
         </div>
       </div>
     </>
