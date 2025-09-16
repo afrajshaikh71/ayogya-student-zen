@@ -12,8 +12,8 @@ const HamburgerMenu = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const handleMenuItemClick = (title: string) => {
-    setIsOpen(false);
-    navigateToSection(title);
+    // Menu items are placeholders only - no navigation
+    return;
   };
 
   const handleLoginClick = () => {
@@ -53,8 +53,8 @@ const HamburgerMenu = () => {
 
       {/* Side Panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-gradient-to-b from-background to-background-secondary shadow-large z-50 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-0 right-0 h-full w-80 bg-gradient-to-b from-background to-background-secondary shadow-large z-50 transform transition-all duration-500 ease-in-out ${
+          isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
         {/* Close Button */}
@@ -72,13 +72,12 @@ const HamburgerMenu = () => {
         <div className="p-6 pt-16 flex flex-col h-full">
           <nav className="space-y-6 flex-1">
             {menuItems.map((item, index) => (
-              <button
+              <div
                 key={index}
-                className="block w-full text-left text-lg font-medium text-foreground hover:text-primary transition-colors duration-200 py-2"
-                onClick={() => handleMenuItemClick(item.title)}
+                className="block w-full text-left text-lg font-medium text-muted-foreground py-2 cursor-default"
               >
                 {item.title}
-              </button>
+              </div>
             ))}
           </nav>
           

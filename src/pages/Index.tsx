@@ -32,7 +32,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background page-transition">
       {/* Hero Section */}
       <div className="relative gradient-primary px-6 py-12 text-center overflow-hidden">
         <div className="absolute inset-0 opacity-20">

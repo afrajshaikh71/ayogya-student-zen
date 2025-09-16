@@ -134,7 +134,7 @@ const PeerSupportForum = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-accent/5">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-accent/5 page-transition">
       {/* Header */}
       <div className="bg-gradient-to-r from-[#F472B6] to-[#EC4899] px-4 py-6">
         <div className="flex items-center justify-between">

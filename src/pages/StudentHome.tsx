@@ -72,7 +72,7 @@ const StudentHome = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary/5">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary/5 page-transition">
       {/* Header */}
       <div className="gradient-primary px-6 py-8 rounded-b-3xl">
         <div className="flex justify-between items-center mb-4">

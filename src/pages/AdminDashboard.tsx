@@ -69,7 +69,7 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary/5">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary/5 page-transition">
       {/* Header */}
       <div className="gradient-primary px-4 py-6">
         <div className="flex items-center gap-3 mb-4">

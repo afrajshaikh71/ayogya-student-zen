@@ -124,7 +124,7 @@ const ResourceHub = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary/5">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary/5 page-transition">
       {/* Header */}
       <div className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] px-4 py-6">
         <div className="flex items-center gap-3 mb-4">

@@ -98,7 +98,7 @@ const ChatbotScreen = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-accent/5 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-accent/5 flex flex-col page-transition">
       {/* Header */}
       <div className="gradient-primary px-4 py-4 flex items-center gap-3">
         <Button

@@ -112,7 +112,7 @@ const CounsellorBooking = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-success/5">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-success/5 page-transition">
       {/* Header */}
       <div className="bg-gradient-to-r from-[#34D399] to-[#10B981] px-4 py-6">
         <div className="flex items-center gap-3 mb-4">

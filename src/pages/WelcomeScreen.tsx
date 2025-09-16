@@ -13,7 +13,7 @@ const WelcomeScreen = () => {
   }, []);
 
   return (
-    <div className="min-h-screen gradient-primary flex flex-col items-center justify-center px-6 text-center">
+    <div className="min-h-screen gradient-primary flex flex-col items-center justify-center px-6 text-center page-transition">
       <div className="mb-8 animate-in slide-in-from-top duration-1000">
         <img 
           src={ayogyaLogo} 
