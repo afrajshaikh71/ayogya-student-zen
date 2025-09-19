@@ -148,9 +148,7 @@
 }
 
 @layer components {
-  .mobile-container {
-    @apply max-w-sm mx-auto bg-background min-h-screen;
-  }
+  
   
   .gradient-primary {
     background: var(--gradient-primary);

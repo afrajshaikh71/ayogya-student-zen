@@ -1,27 +1,24 @@
 import { useNavigate } from "react-router-dom";
-import { useAppNavigation } from "@/hooks/useNavigation";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  MessageCircle, 
-  Calendar, 
-  Users, 
-  BookOpen, 
-  Heart, 
+import {
+  MessageCircle,
+  Calendar,
+  Users,
+  BookOpen,
+  Heart,
   Trophy,
   Bell,
-  User
+  User,
 } from "lucide-react";
 import HamburgerMenu from "@/components/HamburgerMenu";
-import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 
 const StudentHome = () => {
   const navigate = useNavigate();
-  const { goBack } = useAppNavigation();
 
-  // Scroll to top when component mounts
+  // Scroll top
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -32,59 +29,67 @@ const StudentHome = () => {
       description: "Talk to our caring AI assistant",
       icon: MessageCircle,
       route: "/chatbot",
-      gradientClass: "bg-gradient-to-r from-[#A78BFA] to-[#7C3AED]"
+      gradientClass: "gradient-chat",
     },
     {
       title: "Book Counsellor",
       description: "Schedule with professional counsellors",
       icon: Calendar,
       route: "/booking",
-      gradientClass: "bg-gradient-to-r from-[#34D399] to-[#10B981]"
+      gradientClass: "gradient-booking",
     },
     {
       title: "Peer Support",
       description: "Connect with fellow students",
       icon: Users,
       route: "/forum",
-      gradientClass: "bg-gradient-to-r from-[#F472B6] to-[#EC4899]"
+      gradientClass: "gradient-peer",
     },
     {
       title: "Resources",
       description: "Helpful guides and materials",
       icon: BookOpen,
       route: "/resources",
-      gradientClass: "bg-gradient-to-r from-[#3B82F6] to-[#06B6D4]"
+      gradientClass: "gradient-resources",
     },
     {
-      title: "Mood Tracker",
-      description: "Track your emotional wellbeing",
+      title: "Mood Tracking",
+      description: "Log your daily mood and feelings",
       icon: Heart,
       route: "/mood",
-      gradientClass: "bg-gradient-to-r from-[#FBBF24] to-[#F59E0B]"
+      gradientClass: "gradient-mood-card",
     },
     {
       title: "Wellness Challenges",
-      description: "Fun daily mental health activities",
+      description: "Daily habits for better wellbeing",
       icon: Trophy,
       route: "/challenges",
-      gradientClass: "bg-gradient-to-r from-[#22C55E] to-[#0EA5E9]"
-    }
+      gradientClass: "gradient-challenges",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background-secondary to-primary/5 page-transition">
+    <div className="min-h-screen bg-background page-transition">
       {/* Header */}
-      <div className="gradient-primary px-6 py-8 rounded-b-3xl">
+      <div className="gradient-primary px-6 py-6 rounded-b-3xl">
         <div className="flex justify-between items-center mb-4">
           <div>
             <h1 className="text-2xl font-bold text-white">Welcome back!</h1>
             <p className="text-white/90">How are you feeling today?</p>
           </div>
           <div className="flex gap-2">
-            <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-2">
+            <Button
+              size="sm"
+              variant="ghost"
+              className="text-white hover:bg-white/20 p-2"
+            >
               <Bell className="h-5 w-5" />
             </Button>
-            <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-2">
+            <Button
+              size="sm"
+              variant="ghost"
+              className="text-white hover:bg-white/20 p-2"
+            >
               <User className="h-5 w-5" />
             </Button>
             <HamburgerMenu />
@@ -95,81 +100,77 @@ const StudentHome = () => {
         <Card className="bg-white/10 border-white/20">
           <CardContent className="p-4">
             <h3 className="text-white font-semibold mb-1">Quick Mood Check</h3>
-            <p className="text-white/80 text-xs mb-3">Tap an emoji to log your current mood</p>
+            <p className="text-white/80 text-xs mb-3">
+              Tap an emoji to log your current mood
+            </p>
             <div className="flex justify-between gap-2">
-              <Button 
-                size="sm" 
-                className="bg-mood-happy hover:bg-mood-happy/80 text-white rounded-full px-3 py-2 flex-1"
-                onClick={() => navigate("/mood")}
-              >
-                😊
-              </Button>
-              <Button 
-                size="sm" 
-                className="bg-mood-neutral hover:bg-mood-neutral/80 text-white rounded-full px-3 py-2 flex-1"
-                onClick={() => navigate("/mood")}
-              >
-                😐
-              </Button>
-              <Button 
-                size="sm" 
-                className="bg-mood-sad hover:bg-mood-sad/80 text-white rounded-full px-3 py-2 flex-1"
-                onClick={() => navigate("/mood")}
-              >
-                😢
-              </Button>
-              <Button 
-                size="sm" 
-                className="bg-mood-anxious hover:bg-mood-anxious/80 text-white rounded-full px-3 py-2 flex-1"
-                onClick={() => navigate("/mood")}
-              >
-                😰
-              </Button>
+              {["😊", "😐", "😢", "😰", "🤩"].map((emoji, i) => (
+                <Button
+                  key={i}
+                  size="sm"
+                  className="bg-white/20 hover:bg-white/30 text-lg rounded-full flex-1"
+                  onClick={() => navigate("/mood")}
+                >
+                  {emoji}
+                </Button>
+              ))}
             </div>
           </CardContent>
         </Card>
-
       </div>
 
-      {/* Main Actions Grid */}
-      <div id="wellness-hub" className="px-6 py-4">
-        <h2 className="text-xl font-semibold mb-6 text-foreground">Your Wellness Hub</h2>
-        <div className="grid grid-cols-2 gap-4">
+      {/* Wellness Hub */}
+      <div className="px-6 py-8">
+        <h2 className="text-xl font-semibold mb-6 text-foreground">
+          Your Wellness Hub
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-6">
           {quickActions.map((action, index) => (
-            <Card 
-              key={index} 
-              className="card-hover cursor-pointer border-0 shadow-soft"
+            <Card
+              key={index}
+              className="card-hover cursor-pointer border-0 shadow-soft h-full"
               onClick={() => navigate(action.route)}
             >
-              <CardContent className="p-4 text-center">
-                <div className={`w-12 h-12 rounded-2xl ${action.gradientClass} flex items-center justify-center mx-auto mb-3 shadow-medium`}>
-                  <action.icon className="h-6 w-6 text-white" />
+              <CardContent className="p-6 text-center flex flex-col justify-between h-full">
+                <div
+                  className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl ${action.gradientClass} flex items-center justify-center mx-auto mb-4 shadow-medium`}
+                >
+                  <action.icon className="h-7 w-7 md:h-8 md:w-8 text-white" />
                 </div>
-                <h3 className="font-bold text-sm mb-1 text-foreground">{action.title}</h3>
-                <p className="text-xs text-muted-foreground">{action.description}</p>
+                <h3 className="font-bold text-base mb-2 text-foreground">
+                  {action.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {action.description}
+                </p>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
 
-      {/* Wellness Streak & AI Recommendations */}
-      <div className="px-6 py-4 space-y-4">
-        <Card className="bg-gradient-to-r from-accent to-primary border-0">
+      {/* Streak */}
+      <div className="px-6">
+        <Card className="bg-gradient-to-r from-purple-500 to-indigo-500 border-0 text-white">
           <CardContent className="p-4 text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
               <span className="text-2xl">🔥</span>
-              <span className="text-white font-bold text-lg">7-Day Streak!</span>
+              <span className="font-bold text-lg">7-Day Streak!</span>
             </div>
-            <p className="text-white/90 text-sm">Keep up your wellness journey</p>
+            <p className="text-sm">Keep up your wellness journey</p>
           </CardContent>
         </Card>
+      </div>
 
+      {/* Recommendation */}
+      <div className="px-6 mt-4">
         <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
           <CardContent className="p-4">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-lg">🤖</span>
-              <h3 className="font-semibold text-gray-800">Wellness Recommendation</h3>
+              <h3 className="font-semibold text-gray-800">
+                Wellness Recommendation
+              </h3>
             </div>
             <p className="text-sm text-gray-600 mb-3">
               You seem stressed before exams, try this relaxation exercise.
@@ -181,33 +182,56 @@ const StudentHome = () => {
         </Card>
       </div>
 
-      {/* Track Your Wellness Section */}
-      <div className="px-6 py-4">
-        <h2 className="text-xl font-semibold mb-6 text-foreground">Track Your Wellness</h2>
-        
-        {/* Emergency Support */}
-        <Card className="mt-4 bg-destructive/10 border-destructive/20">
+      {/* Emergency */}
+      <div className="px-6 mt-6">
+        <Card className="bg-destructive/10 border-destructive/20">
           <CardContent className="p-4 text-center">
-            <h3 className="font-semibold text-destructive mb-2">Need Immediate Support?</h3>
+            <h3 className="font-semibold text-destructive mb-2">
+              Need Immediate Support?
+            </h3>
             <p className="text-sm text-muted-foreground mb-3">
-              If you're having thoughts of self-harm, please reach out immediately.
+              If you're having thoughts of self-harm, please reach out
+              immediately.
             </p>
-            <Button 
-              variant="destructive" 
+            <Button
+              variant="destructive"
               className="w-full"
-              onClick={() => navigate("/chatbot")}
+              onClick={() => (window.location.href = 'tel:112')}
             >
-              Get Help Now - Call 112
+              Get Help Now – Call 112
             </Button>
           </CardContent>
         </Card>
       </div>
 
-      {/* FAQ Section */}
-      <div id="faq">
-        <FAQSection />
+      {/* FAQ */}
+      <div className="px-6 py-8">
+        <h2 className="text-xl font-semibold mb-4 text-foreground">
+          How Arogya Helps You
+        </h2>
+        <div className="space-y-3">
+          {[
+            "What is AI Chat Support?",
+            "How does the Counsellor Booking work?",
+            "What is Peer Support?",
+            "What will I find in the Resource Hub?",
+            "What is the Mood Tracker?",
+            "What are Wellness Challenges?",
+            "How do AI-driven Wellness Recommendations work?",
+            "What are Wellness Streaks & Rewards?",
+          ].map((question, i) => (
+            <details key={i} className="bg-secondary rounded-lg p-4">
+              <summary className="font-semibold cursor-pointer">
+                {question}
+              </summary>
+              <p className="text-sm mt-2 text-muted-foreground">
+                 details coming soon...
+              </p>
+            </details>
+          ))}
+        </div>
       </div>
-      
+
       {/* Footer */}
       <Footer />
     </div>

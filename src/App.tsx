@@ -23,7 +23,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="mobile-container">
+        {/* ✅ Removed mobile-container */}
+        <div className="min-h-screen bg-background">
           <Routes>
             <Route path="/" element={<WelcomeScreen />} />
             <Route path="/student-home" element={<StudentHome />} />

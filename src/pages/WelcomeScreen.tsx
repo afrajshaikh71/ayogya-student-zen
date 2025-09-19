@@ -17,10 +17,10 @@ const WelcomeScreen = () => {
       <div className="mb-8 animate-in slide-in-from-top duration-1000">
         <img 
           src={ayogyaLogo} 
-          alt="Ayogya Logo" 
+          alt="Arogya Logo" 
           className="w-24 h-24 mx-auto mb-4 rounded-2xl shadow-large"
         />
-        <h1 className="text-4xl font-bold text-white mb-2">Ayogya</h1>
+        <h1 className="text-4xl font-bold text-white mb-2">Arogya</h1>
         <p className="text-xl text-white/90 font-light mb-2">
           Your trusted companion for student mental wellness
         </p>

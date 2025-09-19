@@ -1,10 +1,10 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0; /* remove forced padding */
+  text-align: left; /* let components decide */
+  width: 100%;
+  max-width: 100%; /* remove fixed 1280px cap */
 }
-
 .logo {
   height: 6em;
   padding: 1.5em;
