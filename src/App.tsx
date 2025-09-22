@@ -7,6 +7,10 @@ import WelcomeScreen from "./pages/WelcomeScreen";
 import StudentHome from "./pages/StudentHome";
 import ChatbotScreen from "./pages/ChatbotScreen";
 import CounsellorBooking from "./pages/CounsellorBooking";
+import CounsellorSchedule from "./pages/CounsellorSchedule";
+import CounsellorMessages from "./pages/CounsellorMessages";
+import CounsellorProgress from "./pages/CounsellorProgress";
+import CounsellorGroups from "./pages/CounsellorGroups";
 import CounsellorHome from "./pages/CounsellorHome";
 import PeerSupportForum from "./pages/PeerSupportForum";
 import ResourceHub from "./pages/ResourceHub";
@@ -37,7 +41,13 @@ const App = () => (
             <Route path="/challenges" element={<WellnessChallenges />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
-          </Routes>
+          
+        <Route path="/counsellor-schedule" element={<CounsellorSchedule />} />
+        <Route path="/counsellor-messages" element={<CounsellorMessages />} />
+        <Route path="/counsellor-progress" element={<CounsellorProgress />} />
+        <Route path="/counsellor-groups" element={<CounsellorGroups />} />
+
+      </Routes>
         </div>
       </BrowserRouter>
     </TooltipProvider>

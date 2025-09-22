@@ -41,14 +41,14 @@ const CounsellorHome = () => {
       title: "Student Progress",
       description: "Track wellness metrics",
       icon: BarChart3,
-      route: "/student-progress",
+      route: "/counsellor-progress",   // ✅ fixed
       color: "from-green-500 to-emerald-500"
     },
     {
       title: "Group Sessions",
       description: "Manage peer support groups",
       icon: Users,
-      route: "/group-sessions",
+      route: "/counsellor-groups",     // ✅ fixed
       color: "from-pink-400 to-fuchsia-500"
     }
   ];
