@@ -7,10 +7,10 @@ import {
   Calendar,
   Users,
   BookOpen,
-  Heart,
   Trophy,
   Bell,
   User,
+  ClipboardList, // ✅ fixed icon
 } from "lucide-react";
 import HamburgerMenu from "@/components/HamburgerMenu";
 import Footer from "@/components/Footer";
@@ -29,42 +29,42 @@ const StudentHome = () => {
       description: "Talk to our caring AI assistant",
       icon: MessageCircle,
       route: "/chatbot",
-      gradientClass: "gradient-chat",
+      gradientClass: "bg-gradient-chat",
     },
     {
       title: "Book Counsellor",
       description: "Schedule with professional counsellors",
       icon: Calendar,
       route: "/booking",
-      gradientClass: "gradient-booking",
+      gradientClass: "bg-gradient-booking",
     },
     {
       title: "Peer Support",
       description: "Connect with fellow students",
       icon: Users,
       route: "/forum",
-      gradientClass: "gradient-peer",
+      gradientClass: "bg-gradient-peer",
     },
     {
       title: "Resources",
       description: "Helpful guides and materials",
       icon: BookOpen,
       route: "/resources",
-      gradientClass: "gradient-resources",
+      gradientClass: "bg-gradient-resources",
     },
     {
-      title: "Mood Tracking",
-      description: "Log your daily mood and feelings",
-      icon: Heart,
-      route: "/mood",
-      gradientClass: "gradient-mood-card",
+      title: "Screening Tools", // ✅ Mood Tracker replaced
+      description: "PHQ-9 & GAD-7 quick assessments",
+      icon: ClipboardList,      // ✅ icon fixed
+      route: "/screening-tools", // ✅ matches App.tsx
+      gradientClass: "bg-gradient-screening", // ✅ gradient fixed
     },
     {
       title: "Wellness Challenges",
       description: "Daily habits for better wellbeing",
       icon: Trophy,
       route: "/challenges",
-      gradientClass: "gradient-challenges",
+      gradientClass: "bg-gradient-challenges",
     },
   ];
 
@@ -124,7 +124,7 @@ const StudentHome = () => {
         <h2 className="text-xl font-semibold mb-6 text-foreground">
           Your Wellness Hub
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {quickActions.map((action, index) => (
             <Card
               key={index}
@@ -196,7 +196,7 @@ const StudentHome = () => {
             <Button
               variant="destructive"
               className="w-full"
-              onClick={() => (window.location.href = 'tel:112')}
+              onClick={() => (window.location.href = "tel:112")}
             >
               Get Help Now – Call 112
             </Button>
@@ -215,7 +215,7 @@ const StudentHome = () => {
             "How does the Counsellor Booking work?",
             "What is Peer Support?",
             "What will I find in the Resource Hub?",
-            "What is the Mood Tracker?",
+            "What is the Psychological Screening?",
             "What are Wellness Challenges?",
             "How do AI-driven Wellness Recommendations work?",
             "What are Wellness Streaks & Rewards?",
@@ -225,7 +225,7 @@ const StudentHome = () => {
                 {question}
               </summary>
               <p className="text-sm mt-2 text-muted-foreground">
-                 details coming soon...
+                details coming soon...
               </p>
             </details>
           ))}

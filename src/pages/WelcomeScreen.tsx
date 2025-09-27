@@ -1,64 +1,70 @@
-import { useNavigate } from "react-router-dom";
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { User, UserCheck, Users } from "lucide-react";
-import ayogyaLogo from "@/assets/ayogya-logo.jpg";
 
-const WelcomeScreen = () => {
+// ✅ Logo import
+import logo from "../assets/arogya-logo.png";
+
+const WelcomeScreen: React.FC = () => {
   const navigate = useNavigate();
 
-  // Scroll to top when component mounts
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <div className="min-h-screen gradient-primary flex flex-col items-center justify-center px-6 text-center page-transition">
-      <div className="mb-8 animate-in slide-in-from-top duration-1000">
-        <img 
-          src={ayogyaLogo} 
-          alt="Arogya Logo" 
-          className="w-24 h-24 mx-auto mb-4 rounded-2xl shadow-large"
-        />
-        <h1 className="text-4xl font-bold text-white mb-2">Arogya</h1>
-        <p className="text-xl text-white/90 font-light mb-2">
-          Your trusted companion for student mental wellness
-        </p>
-        <p className="text-sm text-white/80 mt-2 max-w-sm mx-auto">
-          Track your mood, talk to AI, connect with counsellors & peers
-        </p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-blue-500 px-4">
+      {/* Logo inside a square box */}
+      <div className="flex justify-center mb-6">
+        <div className="bg-white rounded-lg shadow-md p-4">
+          <img
+            src={logo}
+            alt="Arogya Logo"
+            className="w-20 h-20 object-contain"
+          />
+        </div>
       </div>
 
-      <div className="w-full max-w-xs space-y-4 animate-in slide-in-from-bottom duration-1000 delay-300">
+      {/* Title */}
+      <h1 className="text-3xl font-bold text-white mb-2">Arogya</h1>
+      <p className="text-white/90 mb-8 text-center max-w-md">
+        Your trusted companion for student mental wellness. <br />
+        Track your mood, talk to AI, connect with counsellors & peers.
+      </p>
+
+      {/* Buttons */}
+      <div className="w-full max-w-xs space-y-3">
         <Button
           onClick={() => navigate("/student-home")}
-          className="w-full bg-white text-primary hover:bg-white/90 shadow-medium py-6 rounded-xl font-medium text-lg"
+          className="w-full bg-white text-blue-600 hover:bg-gray-100"
         >
-          <User className="mr-3 h-6 w-6" />
           Login as Student
         </Button>
 
         <Button
           onClick={() => navigate("/counsellor-home")}
-          className="w-full bg-white text-primary hover:bg-white/90 shadow-medium py-6 rounded-xl font-medium text-lg"
+          className="w-full bg-white text-blue-600 hover:bg-gray-100"
         >
-          <UserCheck className="mr-3 h-6 w-6" />
           Login as Counsellor
         </Button>
+        
 
         <Button
-          onClick={() => navigate("/student-home")}
-          variant="ghost"
-          className="w-full text-white hover:bg-white/20 py-6 rounded-xl font-medium text-lg"
+          onClick={() => navigate("/admin-dashboard")}
+          className="w-full bg-white text-blue-600 hover:bg-gray-100"
         >
-          <Users className="mr-3 h-6 w-6" />
-          Continue as Guest
+          Login as Admin
+        </Button>
+
+        {/* ✅ Guest button proper visible now */}
+        <Button
+          onClick={() => navigate("/student-home")}
+          className="w-full border border-white text-blue-600 bg-white hover:bg-gray-100"
+        >
+          Login as Anonymous (Student)
         </Button>
       </div>
 
-      <div className="mt-12 text-white/70 text-sm animate-in fade-in duration-1000 delay-700">
-        <p>Safe • Confidential • Supportive</p>
-      </div>
+      {/* Footer */}
+      <p className="mt-6 text-white/80 text-sm">
+        Safe • Confidential • Supportive
+      </p>
     </div>
   );
 };

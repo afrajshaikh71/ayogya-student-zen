@@ -93,25 +93,26 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      // ✅ Added gradients here
+      backgroundImage: {
+        'gradient-chat': 'linear-gradient(135deg, #ff9966 0%, #ff5e62 100%)',
+        'gradient-booking': 'linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%)',
+        'gradient-peer': 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+        'gradient-resources': 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)',
+        'gradient-challenges': 'linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)',
+        'gradient-screening': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', // ✅ New
       },
     },
   },
